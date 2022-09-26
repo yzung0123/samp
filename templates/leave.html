@@ -20,7 +20,7 @@
                 <td>{{ data.lastName }}</td>
                 <td>{{ data.leaveStatus }}</td>
                 <td width="130">
-                    {% if data.leaveStatus != "leave" %}
+                    {% if data.leaveStatus != "approved" %}
                     <a href="/leave/{{data.id}}" class="btn btn-primary btn-sm">Approve</a>
                     {% else %}
                     <button disabled class="btn btn-secondary btn-sm">Approved</button>
