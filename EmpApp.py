@@ -122,7 +122,7 @@ def pay_salary(id):
     cur.close()
     return redirect('/salary', code=302)
 
-    @app.route('/leave', methods = ['GET'])
+@app.route('/leave', methods = ['GET'])
 def get_leave():
     conn = db_conn
     cur = conn.cursor(pymysql.cursors.DictCursor)
