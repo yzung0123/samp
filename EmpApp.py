@@ -126,7 +126,7 @@ def pay_salary(id):
 def get_leave():
     conn = db_conn
     cur = conn.cursor(pymysql.cursors.DictCursor)
-    cur.execute('SELECT E.id, E.firstName, E.lastName, L.leave FROM employee E, `leave` L WHERE E.id = L.employee_id')
+    cur.execute('SELECT E.id, E.firstName, E.lastName, L.leaveStatus FROM employee E, `leave` L WHERE E.id = L.employee_id')
     data = cur.fetchall()
     cur.close()
     print(data[0])
