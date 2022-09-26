@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="row"><h3>Employee Information</h3></div>
+      <div class="card card-body">
+        <form action="{{url_for('add_employee')}}" method="POST">
+          <div class="form-group">
+            <input type="int" class="form-control" name="id" placeholder="Employee ID" required=required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="firstName" placeholder="First Name" required=required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="lastName" placeholder="Last Name" required=required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="email" placeholder="Email" required=required>
+          </div>
+          <div class="form-group">
+            <input type="int" class="form-control" name="contact" placeholder="Contact" required=required>
+          </div>
+          <div class="form-group">
+            <input type="int" class="form-control" name="address" placeholder="Address" required=required>
+          </div>
+          <div class="form-group">
+            <select style="height:20px;font-size:10pt;color:grey;" name="gender" required=required>
+              <option disabled="disabled" selected="selected">Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="int" class="form-control" name="salary" placeholder="Salary" required=required>
+          </div>
+          <button class="btn btn-primary btn-block">
+            Save 
+          </button>
+        </form>
+      </div>
+    </div>
+    <br><br><br>
+  <div class="col-md-8">
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+      <thead>
+        <tr>
+          <td>Employee ID</td>
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Email</td>
+          <td>Contact</td>
+          <td>Address</td>
+          <td>Gender</td>
+          <td>Salary</td>
+          <td>Action</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for data in employee %}
+        <tr>
+          <td>{{ data.id }}</td>
+          <td>{{ data.firstName }}</td>
+          <td>{{ data.lastName }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.contact }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.gender }}</td>
+          <td>{{ data.salary }}</td>
+          <td width="130">
+            <a href="/edit/{{data.id}}" class="button button">edit</a>
+            <a href="/delete/{{data.id}}" class="button button2">delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endblock %}

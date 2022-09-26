@@ -1,0 +1,35 @@
+﻿{% extends "layout.html" %}
+{% block body %}
+<div class="row"><h3>Employee Leave Information</h3></div>
+<div class="col-md-8">
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <td>EmployeeID</td>
+                <td>FirstName</td>
+                <td>LastName</td>
+                <td>Status</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in employee %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.firstName }}</td>
+                <td>{{ data.lastName }}</td>
+                <td>{{ data.leaveStatus }}</td>
+                <td width="130">
+                    {% if data.leaveStatus != "leave" %}
+                    <a href="/leave/{{data.id}}" class="btn btn-primary btn-sm">Approve</a>
+                    {% else %}
+                    <button disabled class="btn btn-secondary btn-sm">Approved</button>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+    </div>
+{% endblock %}

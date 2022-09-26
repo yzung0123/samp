@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="row"><h3>Edit Employee Information</h3></div>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card card-body">
+        <form action="/update/{{employee.id}}" method="POST">
+          <div class="form-group">
+            <input type="text" name="firstName" value="{{employee.firstName}}" class="form-control" required=required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="lastName" value="{{employee.lastName}}" class="form-control" required=required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="email" value="{{employee.email}}" class="form-control" required=required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="contact" value="{{employee.contact}}" class="form-control" required=required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="address" value="{{employee.address}}" class="form-control" required=required>
+          </div>
+          <div class="form-group">
+            <select style="height:20px;font-size:10pt;color:grey;" name="gender" required=required>
+                <option disabled="disabled" selected="selected" value="{{employee.gender}}">Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+          </div>
+          <div class="form-group">
+            <input type="text" name="salary" value="{{employee.salary}}" class="form-control" required=required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+ 
+{% endblock %}

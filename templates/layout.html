@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+    <style>
+      table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+      }
+  
+      td, thead {
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 8px;
+      }
+
+      thead {
+        background-color: cornflowerblue;
+        color: white;
+      }
+
+      ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      li{
+        float: left;
+      }
+
+      li a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover{
+        background-color: #111;
+      }
+
+      .button{
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+
+      .button2{
+        background-color: #f44336;
+      }
+  </style>
+  </head>
+  
+  <body>
+ 
+    <!-- NAVIGATION  -->
+    <nav class="navbar navbar-dark bg-dark">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/salary">Payroll</a></li>
+        <li><a href="/salary">Payroll</a></li>
+        <li><a href="/leave">Leave</a></li>
+        <li><a href="/">Employee Leave Application</a></li>
+      </ul>
+    </nav>
+     
+    <div class="container pt-4">
+      {% block body %}
+      {% endblock %}
+    </div>
+  
+<script>
+const btnDelete= document.querySelectorAll('.btn-delete');
+if(btnDelete) {
+  const btnArray = Array.from(btnDelete);
+  btnArray.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      if(!confirm('Are you sure you want to delete it?')){
+        e.preventDefault();
+      }
+    });
+  })
+}
+ 
+$(document).ready(function() {
+    $('#example').DataTable({     
+      "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+        "iDisplayLength": 3
+       } 
+    );
+} );
+ 
+</script>
+  </body>
+</html>
