@@ -133,7 +133,7 @@ def get_leave():
     return render_template('leave.html', employee = data)
 
 @app.route('/leave/<id>', methods = ['GET'])
-def approved_leave(id):
+def approve_leave(id):
 
     conn = db_conn
     cur = conn.cursor(pymysql.cursors.DictCursor)
